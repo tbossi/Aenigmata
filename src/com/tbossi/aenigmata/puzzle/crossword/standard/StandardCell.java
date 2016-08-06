@@ -20,6 +20,10 @@ public class StandardCell extends Cell<Optional<Long>, Optional<Character>> impl
 		setBlack(isBlack);
 	}
 	
+	public StandardCell() {
+		this(false);
+	}
+	
 	@Override
 	public void setKey(Optional<Long> key) {
 		if (key == null)
