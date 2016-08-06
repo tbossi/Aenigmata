@@ -41,6 +41,17 @@ public abstract class Grid<C extends Cell<?, ?>, D extends WordDirection> {
 	 */
 	protected abstract C dummyInstance();
 	
+	protected boolean isCellContainedInWordList(C cell, D direction) {
+		return wordList.stream()
+				.filter(word -> word.getDirection().equals(direction))
+				.anyMatch(word -> word.contains(cell));
+	}
+	
+	public void update() {
+		updateCellNumbers();
+		updateWordList();
+	}
+	
 	public abstract void updateCellNumbers();
 	public abstract void updateWordList();
 	
